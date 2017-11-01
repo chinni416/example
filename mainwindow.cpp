@@ -1,0 +1,37 @@
+#include "mainwindow.h"
+#include "ui_mainwindow.h"
+#include<sec_dialog.h>
+
+
+QString var;
+sec_Dialog *secd;
+
+MainWindow::MainWindow(QWidget *parent) :
+    QMainWindow(parent),
+    ui(new Ui::MainWindow)
+{
+    ui->setupUi(this);
+}
+
+MainWindow::~MainWindow()
+{
+    delete ui;
+}
+
+
+
+void MainWindow::on_pushButton_clicked()
+{
+    var=ui->lineEdit_2->text();
+}
+
+void MainWindow::on_pb_clicked()
+{
+    ui->lineEdit->setText(var);
+    ui->lineEdit_3->setText(var);
+
+    secd=new sec_Dialog();
+            secd->show();
+}
+
+
